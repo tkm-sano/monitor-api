@@ -12,7 +12,7 @@ with tempfile.NamedTemporaryFile(delete=False) as fp:
 scope = ["https://www.googleapis.com/auth/spreadsheets"]
 gc = gspread.authorize(Credentials.from_service_account_file(sa_file, scopes=scope))
 sh = gc.open_by_key(os.environ["1PllPj6Jh51_9u5-3sLJXEgWjuXwQIXg004Bh9EUcWe8"])
-ws = sh.worksheet(os.environ["新卒採用トラッカー（初期版）"])
+ws = sh.worksheet(os.environ["Sheet1"])
 
 records = ws.get_all_records()
 row_map = {r["企業名"]: i + 2 for i, r in enumerate(records)}  # 2 行目～
